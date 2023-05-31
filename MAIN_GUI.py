@@ -194,7 +194,7 @@ if uploaded_file is not None:
             st.write('**X-RAY IMAGE AFTER SHARPENING**')
             img = Sacnet(img)
             st.image(img, channels="RGB")
-        with col4:
+        with col2:
             img = img.resize((64,64))
             img = img_to_array(img)
             img = img.reshape(1,64,64,3)
