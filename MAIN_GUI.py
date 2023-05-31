@@ -186,10 +186,6 @@ if uploaded_file is not None:
         st.image(img, channels="RGB")   # hiển thị ảnh
         Process = st.button("**Process & Diagnostic**")
     if Process:
-        '''with col2:
-            st.write('**X-RAY IMAGE AFTER BLUR**')
-            img = changeImg(img)
-            st.image(img, channels="RGB")'''
         with col2:
             st.write('**X-RAY IMAGE AFTER EQUA-HIST**')
             img = equal_hist(img)
