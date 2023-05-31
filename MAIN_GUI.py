@@ -17,7 +17,7 @@ def get_img_as_base64(file):
         data = f.read()
     return base64.b64encode(data).decode()
 
-img = get_img_as_base64("bg13.jpg")
+img = get_img_as_base64("background.jpg")
 
 page_bg_img = f"""
 <style>
@@ -101,7 +101,7 @@ def equal_hist(imgPIL):
             # gán giá trị múc xám vừa tính cho ảnh xám
             average.putpixel((x,y),(grayLuminance,grayLuminance,grayLuminance))
 
-    # mỗi pixel có giá trijw từ 0-255, nên khai báo mảng có 256 pt
+    # mỗi pixel có giá trị từ 0-255, nên khai báo mảng có 256 pt
     his = np.zeros(256)
     for x in range(width):
         for y in range(height):
@@ -180,7 +180,7 @@ def Sacnet(imgPIL):
 if uploaded_file is not None:
     img = image.load_img(uploaded_file,target_size=(300,300))
     
-    col1, col2, col3, col4 = st.columns(4) 
+    col1, col2, col3 = st.columns(3) 
     with col1:
         st.write('**X-RAY IMAGE NON-PROCESS**')
         st.image(img, channels="RGB")   # hiển thị ảnh
@@ -194,7 +194,7 @@ if uploaded_file is not None:
             st.write('**X-RAY IMAGE AFTER SHARPENING**')
             img = Sacnet(img)
             st.image(img, channels="RGB")
-        with col2:
+        #with col2:
             img = img.resize((64,64))
             img = img_to_array(img)
             img = img.reshape(1,64,64,3)
